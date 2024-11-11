@@ -12,11 +12,3 @@ Welcome to the **RAG (Retrieval-Augmented Generation) Program** powered by [Llam
 - **Supports OpenAI and Local LLMs**: Flexibility in choosing between OpenAI’s API or your own local model.
 
 ---
-
-## 🛠️ Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/rag-intent-llamaindex.git
-cd rag-intent-llamaindex
