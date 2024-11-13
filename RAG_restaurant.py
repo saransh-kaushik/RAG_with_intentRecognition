@@ -1,3 +1,4 @@
+#importing docs
 from llama_index.core import (
     VectorStoreIndex,
     ServiceContext,
@@ -14,10 +15,10 @@ import torch
 import warnings
 warnings.filterwarnings("ignore")
 
-
+#initializing memory
 memory = ChatMemoryBuffer.from_defaults(token_limit=2000)
 
-def RAG(user_input, memory):
+def RAG(user_input, memory):  # defining RAG function
     """
     Retrieves and generates a response for the user's query using RAG.
     
@@ -56,7 +57,7 @@ def RAG(user_input, memory):
     response = chat_engine.chat(user_input)
     return response
 
-def load_trained_model():
+def load_trained_model(): ##load model
     # Load the fine-tuned model and tokenizer
     model = DistilBertForSequenceClassification.from_pretrained("./intent_model")
     tokenizer = DistilBertTokenizer.from_pretrained("./intent_model")
@@ -71,7 +72,7 @@ def predict_intent(text, model, tokenizer):
     print(f"Intent detected: {intents[predicted_class]} - Confidence: {probs[0][predicted_class]:.2f}")
     return predicted_class
 
-def RAG_intent(user_input, model, tokenizer):
+def RAG_intent(user_input, model, tokenizer): 
     intent = predict_intent(user_input, model, tokenizer)
     if intent in [0, 1, 2]:             # Only activates RAG for menu inquiries, order requests, or pricing inquiries
         print("RAG processing required.")
