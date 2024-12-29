@@ -1,4 +1,3 @@
-#importing docs
 from llama_index.core import (
     VectorStoreIndex,
     ServiceContext,
@@ -29,7 +28,7 @@ def RAG(user_input, memory):  # defining RAG function
     - str: The generated response from the chatbot.
     """
     # Load and prepare documents
-    reader = SimpleDirectoryReader(input_files=["./your_files_here"])
+    reader = SimpleDirectoryReader(input_files=["./your_files"])
     documents = reader.load_data()
     
     # Chunking
